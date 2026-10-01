@@ -1,0 +1,37 @@
+<%- include('header') %>
+
+<h2>Student Registration</h2>
+<form method="POST" action="/register" class="form">
+  <label>Full Name</label>
+  <input type="text" name="name" required>
+
+  <label>Register Number</label>
+  <input type="text" name="register_number" required>
+
+  <label>Email</label>
+  <input type="email" name="email" required>
+
+  <label>Department</label>
+  <select name="department">
+    <option>CSE</option><option>ECE</option><option>EEE</option>
+    <option>IT</option><option>MECH</option><option>CIVIL</option>
+  </select>
+
+  <label>Year</label>
+  <select name="year">
+    <option>1</option><option>2</option><option>3</option><option>4</option>
+  </select>
+
+  <label>Phone</label>
+  <input type="text" name="phone" required>
+
+  <label>Password</label>
+  <input type="password" name="password" required>
+
+  <label>Confirm Password</label>
+  <input type="password" name="confirm" required>
+
+  <button class="btn">Register</button>
+</form>
+
+<%- include('footer') %>

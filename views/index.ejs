@@ -1,0 +1,21 @@
+<%- include('header') %>
+
+<h1>College Event Management System</h1>
+<p>Manage and participate in college events easily.</p>
+<a href="/events" class="btn">View Events</a>
+<a href="/login" class="btn">Login</a>
+
+<h2>Upcoming Events</h2>
+<div class="cards">
+  <% events.forEach(e => { %>
+    <div class="card">
+      <h3><%= e.event_name %></h3>
+      <p>Date: <%= e.event_date.toISOString().slice(0,10) %></p>
+      <p>Time: <%= e.event_time %></p>
+      <p>Venue: <%= e.venue %></p>
+      <a href="/events/<%= e.id %>" class="btn">View Details</a>
+    </div>
+  <% }) %>
+</div>
+
+<%- include('footer') %>

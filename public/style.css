@@ -1,0 +1,122 @@
+* { box-sizing: border-box; }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fff;
+  color: #222;
+}
+
+/* Navbar */
+nav {
+  background: #222;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 15px;
+}
+nav a.brand {
+  font-weight: bold;
+  font-size: 18px;
+  margin-left: 0;
+}
+nav a:hover { text-decoration: underline; }
+
+/* Main */
+main {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+h1, h2 { color: #222; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: #0066cc;
+  color: #fff;
+  padding: 8px 15px;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px 0;
+}
+.btn:hover { background: #0055aa; }
+.btn.small { padding: 4px 10px; font-size: 13px; }
+.btn.red { background: #cc0000; }
+.btn.disabled { background: #999; cursor: not-allowed; }
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+  width: 250px;
+}
+.card h3 { margin-top: 0; }
+
+/* Forms */
+.form {
+  max-width: 400px;
+  margin-top: 15px;
+}
+.form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.form input, .form select, .form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+table th, table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+table th { background: #f0f0f0; }
+
+/* Messages */
+.msg {
+  background: #ffffcc;
+  border-left: 4px solid #ffcc00;
+  padding: 10px;
+  margin: 15px 0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #f0f0f0;
+  margin-top: 40px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  nav { flex-direction: column; align-items: flex-start; }
+  nav a { margin: 5px 0; }
+  .card { width: 100%; }
+}

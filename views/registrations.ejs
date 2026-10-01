@@ -1,0 +1,20 @@
+<%- include('header') %>
+
+<h2>Event Registrations</h2>
+<table>
+  <tr>
+    <th>ID</th><th>Student</th><th>Register No</th><th>Event</th><th>Date</th><th>Status</th>
+  </tr>
+  <% regs.forEach(r => { %>
+    <tr>
+      <td><%= r.id %></td>
+      <td><%= r.student %></td>
+      <td><%= r.register_number %></td>
+      <td><%= r.event_name %></td>
+      <td><%= r.registered_at.toISOString().slice(0,10) %></td>
+      <td><%= r.status %></td>
+    </tr>
+  <% }) %>
+</table>
+
+<%- include('footer') %>

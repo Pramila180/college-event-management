@@ -1,0 +1,39 @@
+<%- include('header') %>
+
+<h2>Add Event</h2>
+<form method="POST" action="/add-event" class="form">
+  <label>Event Name *</label>
+  <input type="text" name="event_name" required>
+
+  <label>Description</label>
+  <textarea name="description"></textarea>
+
+  <label>Date *</label>
+  <input type="date" name="event_date" required>
+
+  <label>Time</label>
+  <input type="text" name="event_time">
+
+  <label>Venue *</label>
+  <input type="text" name="venue" required>
+
+  <label>Organizer</label>
+  <input type="text" name="organizer">
+
+  <label>Maximum Participants *</label>
+  <input type="number" name="max_participants" required>
+
+  <label>Registration Deadline</label>
+  <input type="date" name="registration_deadline">
+
+  <label>Status</label>
+  <select name="status">
+    <option>Upcoming</option>
+    <option>Completed</option>
+    <option>Cancelled</option>
+  </select>
+
+  <button class="btn">Add Event</button>
+</form>
+
+<%- include('footer') %>

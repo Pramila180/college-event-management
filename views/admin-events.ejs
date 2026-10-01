@@ -1,0 +1,28 @@
+<%- include('header') %>
+
+<h2>Manage Events</h2>
+<a href="/add-event" class="btn">+ Add Event</a>
+
+<table>
+  <tr>
+    <th>ID</th><th>Event</th><th>Date</th><th>Venue</th><th>Status</th><th>Actions</th>
+  </tr>
+  <% events.forEach(e => { %>
+    <tr>
+      <td><%= e.id %></td>
+      <td><%= e.event_name %></td>
+      <td><%= e.event_date.toISOString().slice(0,10) %></td>
+      <td><%= e.venue %></td>
+      <td><%= e.status %></td>
+      <td>
+        <a href="/edit-event/<%= e.id %>" class="btn small">Edit</a>
+        <form method="POST" action="/delete-event/<%= e.id %>" style="display:inline"
+              onsubmit="return confirm('Delete this event?')">
+          <button class="btn small red">Delete</button>
+        </form>
+      </td>
+    </tr>
+  <% }) %>
+</table>
+
+<%- include('footer') %>

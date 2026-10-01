@@ -1,0 +1,25 @@
+<%- include('header') %>
+
+<h2>My Events</h2>
+<table>
+  <tr>
+    <th>Event</th><th>Date</th><th>Venue</th><th>Status</th><th>Action</th>
+  </tr>
+  <% registrations.forEach(r => { %>
+    <tr>
+      <td><%= r.event_name %></td>
+      <td><%= r.event_date.toISOString().slice(0,10) %></td>
+      <td><%= r.venue %></td>
+      <td><%= r.status %></td>
+      <td>
+        <% if (r.status === 'Registered') { %>
+          <form method="POST" action="/my-events/<%= r.reg_id %>/cancel" style="display:inline">
+            <button class="btn small">Cancel</button>
+          </form>
+        <% } else { %> - <% } %>
+      </td>
+    </tr>
+  <% }) %>
+</table>
+
+<%- include('footer') %>

@@ -1,0 +1,26 @@
+<%- include('header') %>
+
+<h2><%= event.event_name %></h2>
+<p><b>Description:</b> <%= event.description %></p>
+<p><b>Date:</b> <%= event.event_date.toISOString().slice(0,10) %></p>
+<p><b>Time:</b> <%= event.event_time %></p>
+<p><b>Venue:</b> <%= event.venue %></p>
+<p><b>Organizer:</b> <%= event.organizer %></p>
+<p><b>Maximum Participants:</b> <%= event.max_participants %></p>
+<p><b>Available Seats:</b> <%= event.available %></p>
+
+<% if (user && user.role === 'student') { %>
+  <% if (already) { %>
+    <p class="btn disabled">Already Registered</p>
+  <% } else if (event.available <= 0) { %>
+    <p class="btn disabled">Event Full</p>
+  <% } else { %>
+    <form method="POST" action="/events/<%= event.id %>/register">
+      <button class="btn">Register for Event</button>
+    </form>
+  <% } %>
+<% } else if (!user) { %>
+  <a href="/login" class="btn">Login to Register</a>
+<% } %>
+
+<%- include('footer') %>

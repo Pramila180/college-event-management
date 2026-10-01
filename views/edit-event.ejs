@@ -1,0 +1,39 @@
+<%- include('header') %>
+
+<h2>Edit Event</h2>
+<form method="POST" action="/edit-event/<%= event.id %>" class="form">
+  <label>Event Name *</label>
+  <input type="text" name="event_name" value="<%= event.event_name %>" required>
+
+  <label>Description</label>
+  <textarea name="description"><%= event.description %></textarea>
+
+  <label>Date *</label>
+  <input type="date" name="event_date" value="<%= event.event_date.toISOString().slice(0,10) %>" required>
+
+  <label>Time</label>
+  <input type="text" name="event_time" value="<%= event.event_time %>">
+
+  <label>Venue *</label>
+  <input type="text" name="venue" value="<%= event.venue %>" required>
+
+  <label>Organizer</label>
+  <input type="text" name="organizer" value="<%= event.organizer %>">
+
+  <label>Maximum Participants *</label>
+  <input type="number" name="max_participants" value="<%= event.max_participants %>" required>
+
+  <label>Registration Deadline</label>
+  <input type="date" name="registration_deadline" value="<%= event.registration_deadline ? event.registration_deadline.toISOString().slice(0,10) : '' %>">
+
+  <label>Status</label>
+  <select name="status">
+    <option <%= event.status==='Upcoming'?'selected':'' %>>Upcoming</option>
+    <option <%= event.status==='Completed'?'selected':'' %>>Completed</option>
+    <option <%= event.status==='Cancelled'?'selected':'' %>>Cancelled</option>
+  </select>
+
+  <button class="btn">Update Event</button>
+</form>
+
+<%- include('footer') %>

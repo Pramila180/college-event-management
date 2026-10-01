@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Campus Events</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<nav>
+  <a href="/" class="brand">Campus Events</a>
+  <div>
+    <a href="/">Home</a>
+    <a href="/events">Events</a>
+
+    <% if (user && user.role === 'student') { %>
+      <a href="/my-events">My Events</a>
+      <a href="/logout">Logout</a>
+    <% } else if (user && user.role === 'admin') { %>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/admin-events">Manage Events</a>
+      <a href="/registrations">Registrations</a>
+      <a href="/logout">Logout</a>
+    <% } else { %>
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+    <% } %>
+  </div>
+</nav>
+
+<main>
+<% if (msg) { %><p class="msg"><%= msg %></p><% } %>
